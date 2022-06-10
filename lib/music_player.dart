@@ -37,7 +37,7 @@ class MusicPlayerState extends State<MusicPlayer> {
 
   void setSong(SongInfo songInfo) async {
     widget.songInfo = songInfo;
-    await player.setAudioSource(createPlaylist(widget.songInfo), initialIndex: widget.songInfo);
+    await player.setUrl(widget.songInfo.uri);
     currentValue = minimumValue;
     maximumValue = player.duration!.inMilliseconds.toDouble();
     setState(() {
@@ -228,5 +228,5 @@ class MusicPlayerState extends State<MusicPlayer> {
     );
   }
 
-
+  
 }
